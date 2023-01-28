@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					Slide 1
+					<h1 style="color: aqua;">React Hooks</h1>
+					<img src="/examples/assets/react-hooks-best-practices-lead_.jpg" alt="react hooks">
+				</section>
+				<section>
+					Slide 2
+					<h3 style="color: aqua;">What are React Hooks?</h3>
+					<p>Hooky is a mechanism in React that allows you to work entirely without classes.</p>
+				</section>
+				<section>
+					Slide 3
+					<h3 style="color: aqua;">Advantages of using React Hooks</h3>
+					<p class="fragment" data-fragment-index="1">• More flexibility in reusing an existing piece of code.</p>
+					<p class="fragment" data-fragment-index="2">• There is no need to refactor the functional component into a class component when it grows complex.</p>
+					<p class="fragment" data-fragment-index="3">• No more bindings for methods</p>
+					<p class="fragment" data-fragment-index="4">• It is simpler to distinguish logic and UI using hooks.</p>
+					<p></p>
+				</section>
+				<section>
+					Slide 4
+					<h3 style="color: aqua;">React Hook types</h3>
+					<div>
+						</h4>Basic Hooks</h4>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="1">• useState()</p>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="1">• useEffect()</p>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="1">• useContext()</p>
+					</div>
+					<div>
+						</h4>Additional Hooks</h4>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="2">• useReducer()</p>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="2">• useMemo()</p>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="2">• useCallback()</p>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="2">• useImperativeHandle()</p>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="2">• useDebugValue()</p>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="2">• useRef()</p>
+						<p style="font-size: 16px;" class="fragment" data-fragment-index="2">• useLayoutEffect()</p>
+					</div>					
+				</section>
+				<section>
+					slide 5
+					<p style="font-size: 14px;" style="color: aqua;">useState()</p>
+					<pre data-fragment-index="1" data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						class Sample extends React.Component {
+							constructor(props) {
+								super(props);
+
+							 this.state = {
+								 age: 0
+							 };
+						 }
+					</code></pre>
+					<pre data-fragment-index="2" data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						import React, { useState } from 'react';
+
+						function Sample() {
+							// Initialize a new state variable called  "age"
+							const [age, setAge] = useState(0);
+					</code></pre>					
+				</section>
+				<section>Slide 6
+					<pre data-id="code-animation"><code class="hljs javascript"><script type="text/template">
+						import React, { useState } from 'react';
+ 
+						function Sample() {
+							const [age, setAge] = useState(0);
+					
+							return (
+								<div>
+									<p>You clicked {age} times</p>
+									<button onClick={() => setAge(age + 1)}>
+									Click me
+									</button>
+								</div>
+							);
+						}
+					</script></code></pre>
+				</section>
+				<section>
+					Slide 7
+					<p style="color: aqua;">useEffect()</p>
+					<p>The useEffect hook is useful when you wish to run some functions during the component's lifecycle.</p>
+					<pre data-fragment-index="2" data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						useEffect(callback[, dependencies]);
+					</code></pre>	
+					<p style="font-size: 12px;">callback is the function containing the side-effect logic. Callback is executed right after changes were being pushed to DOM.</p>
+					<p style="font-size: 12px;">Dependencies is an optional array of dependencies. useEffect() executes callback only if the dependencies have changed between renderings.</p>
+				</section>
+				<section>
+					Slide 8
+					<p style="color: aqua;">useContext()</p>
+					<p>Context provides a way to pass data or state through the component tree without having to pass props down manually through each nested component.</p>
+					<pre data-fragment-index="2" data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						const value = useContext(SomeContext)
+					</code></pre>	
+				</section>
+				<section>
+					Slide 9
+					<p style="color: aqua;">useMemo()</p>
+					<p>useMemo() is a built-in React hook that accepts 2 arguments — a function compute that computes a result and the dependencies array:</p>
+					<pre data-fragment-index="2" data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						const memoizedResult = useMemo(compute, dependencies);
+					</code></pre>	
+				</section>
+				<section>
+					<h3>Thanks for you attentions.</h3>
+					<a href="https://github.com/OlegVoitko">Oleg Voitko github</a>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
